@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<map name="venezuelan hacker" version="1.0.0">
+    <include src="defaults.xml"/>
+    <include src="Shared/reward-one-gap.xml"/>
+
+    <authors>
+        <author uuid="bf3319534f9243ee8abc7544b8234936"/> <!-- Wulfcaspice -->
+    </authors>
+
+    <teams>
+        <team id="red" color="red" min="12" max="20">{colors.red}</team>
+        <team id="blue" color="blue" min="12" max="20">{colors.blue}</team>
+    </teams>
+
+    <spawns>
+        <spawn yaw="-83">
+            <regions>
+                <block>-62, 16, 30</block>
+            </regions>
+        </spawn>
+
+        <spawn team="red" yaw="180" loadout="default">
+            <regions>
+                <block>-32, 7, 56</block>
+            </regions>
+        </spawn>
+
+        <spawn team="blue" yaw="0" loadout="default">
+            <regions>
+                <block>-32, 7, 4</block>
+            </regions>
+        </spawn>
+    </spawns>
+
+    <objectives>
+        <hill name="{directions.center}" capture-time="10s" points="15" >
+            <capture>
+                <cylinder base="-32, 3, 30" height="4" radius="4"/>
+            </capture>
+            <progress>
+                <cuboid min="-28, 6, 34" max="-38, 3, 23"/>
+            </progress>
+        </hill>
+
+        <scores limit="100">
+            <score id="blue-score" team="blue"/>
+            <score id="red-score" team="red"/>
+        </scores>
+    </objectives>
+
+    <results>
+        <win team="blue">
+            <check>
+                <objective team="blue">blue-score</objective>
+            </check>
+        </win>
+        <win team="red">
+            <check>
+                <objective team="red">red-score</objective>
+            </check>
+        </win>
+    </results>
+
+    <loadouts>
+        <loadout id="default">
+            <effect duration="5s">damage resistance</effect>
+            <helmet material="leather helmet" team-color="true"/>
+            <chestplate material="leather chestplate" team-color="true"/>
+            <leggings material="leather leggings" team-color="true"/>
+            <boots material="leather boots" team-color="true"/>
+            <item slot="0" material="iron sword"/>
+            <item slot="1" material="bow"/>
+            <item slot="3" material="bread" amount="16"/>
+            <item slot="2" material="golden apple"/>
+            <item slot="8" material="arrow" amount="8"/>
+            <item slot="29" material="ladder" amount="16"/>
+        </loadout>
+    </loadouts>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>leather chestplate</material>
+                <material>iron leggings</material>
+                <material>leather boots</material>
+                <material>cooked beef</material>
+                <material>arrow</material>
+                <material>golden apple</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+            </any>
+        </repair-tools>
+    </items>
+
+    <zones>
+        <zone modify="never">
+            <region>
+                <invert>
+                    <cuboid min="-30, 7, 56" max="-30, 7, 56"/>
+                </invert>
+            </region>
+            <message>{errors.outside-map}</message>
+        </zone>
+    </zones>
+    <world>
+        <gamerules>
+            <doDaylightCycle>false</doDaylightCycle>
+        </gamerules>
+    </world>
+</map>
