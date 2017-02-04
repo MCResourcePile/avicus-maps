@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Elevated" version="1.1.0">
+    <include src="defaults.xml"/>
+
+    <authors>
+        <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/>
+        <author uuid="4b50f55529e04fd7aef8d20a157df16e"/>
+        <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/>
+    </authors>
+    <compasses>
+ 
+       <compass target="enemy"/>
+
+    </compasses>
+    <teams>
+        <team id="blue" color="blue" min="2" max="16">{colors.blue}</team>
+        <team id="red" color="red" min="2" max="16">{colors.red}</team>
+    </teams>
+    <zones>
+        <zones>
+            <zone modify="never" region="everywhere"/>
+        </zones>
+    </zones>
+    <objectives>
+        <last-team-standing team="blue"/>
+        <last-team-standing team="red"/>
+    </objectives>
+    <elimination lives="1"/>
+    <results>
+        <win scenario="objectives">
+            <check>
+                <time>5m</time>
+            </check>
+        </win>
+    </results>
+
+    <spawns>
+    <!-- Spectator spawn -->
+        <spawn>
+            <regions>
+                <point yaw="90">2, 12, 56</point>
+            </regions>
+        </spawn>
+        <spawn team="red" loadout="default">
+            <regions>
+                <point yaw="180">-20, 10, 121</point>
+            </regions>
+        </spawn>
+        <spawn team="blue" loadout="default">
+            <regions>
+                <point yaw="0">-20, 10, -9</point>
+            </regions>
+        </spawn>
+    </spawns>
+
+    <loadouts>
+        <loadout id="default">
+            <helmet team-color="true" material="leather helmet"/>
+            <chestplate team-color="true" material="leather chestplate"/>
+            <leggings material="chainmail leggings"/>
+            <boots team-color="true" material="leather boots"/>
+            <item slot="0" material="wood sword"/>
+            <item slot="1" material="bow"/>
+            <item slot="2" material="bread" amount="16"/>
+            <item slot="3" material="compass"/>
+            <item slot="8" material="arrow" amount="16"/>
+        </loadout>
+        <loadout id="one-golden-apple">
+            <item material="golden apple"/>
+        </loadout>
+    </loadouts>
+    <kills>
+        <rewards>
+            <reward loadout="one-golden-apple"/>
+        </rewards>
+    </kills>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>leather chestplate</material>
+                <material>leather leggings</material>
+                <material>leather boots</material>
+                <material>compass</material>
+                <material>bread</material>
+                <material>arrow</material>
+                <material>golden apple</material>
+            </any>
+        </remove-drops>
+
+        <repair-tools>
+            <any>
+                <material>wood sword</material>
+                <material>bow</material>
+            </any>
+        </repair-tools>
+    </items>
+</map>

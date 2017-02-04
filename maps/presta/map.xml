@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Presta" version="1.1.0">
+    <include src="defaults.xml"/>
+    <include src="Shared/reward-one-arrow.xml"/>
+
+    <authors>
+        <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/>
+        <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/>
+        <author uuid="38cc237d92724e01ad24f5b0110130c1"/>
+    </authors>
+    <compasses>
+ 
+       <compass target="enemy"/>
+
+    </compasses>
+    <teams>
+        <team id="orange" color="orange" min="2" max="12">{colors.orange}</team>
+        <team id="green" color="green" min="2" max="12">{colors.green}</team>
+    </teams>
+    <zones>
+        <zones>
+            <zone modify="never" region="everywhere"/>
+        </zones>
+    </zones>
+    <objectives>
+        <last-team-standing team="orange"/>
+        <last-team-standing team="green"/>
+    </objectives>
+    <elimination lives="1"/>
+    <results>
+        <win scenario="objectives">
+            <check>
+                <time>5m</time>
+            </check>
+        </win>
+    </results>
+
+    <spawns>
+    <!-- Spectator spawn -->
+        <spawn>
+            <regions>
+                <point yaw="180">-53, 20, -8</point>
+            </regions>
+        </spawn>
+        <spawn team="orange" loadout="default">
+            <regions>
+                <circle look="-53, 25, 7" center="-111, 24, 13" radius="0"/>
+                <circle look="-53, 25, 7" center="-111, 24, 1" radius="0"/>
+            </regions>
+        </spawn>
+        <spawn team="green" loadout="default">
+            <regions>
+                <circle look="-53, 25, 7" center="5, 24, 1" radius="0"/>
+                <circle look="-53, 25, 7" center="5, 24, 13" radius="0"/>
+            </regions>
+        </spawn>
+    </spawns>
+
+    <loadouts>
+        <loadout id="default">
+            <helmet team-color="true" material="leather helmet"/>
+            <chestplate team-color="true" material="leather chestplate"/>
+            <leggings material="chainmail leggings"/>
+            <boots team-color="true" material="leather boots"/>
+            <item slot="0" material="wood sword">
+                <enchantment level="100">damage all</enchantment>
+            </item>
+            <item slot="1" material="bow">
+                <enchantment level="100">arrow damage</enchantment>
+            </item>
+            <item slot="2" material="bread" amount="16"/>
+            <item slot="3" material="arrow"/>
+            <item slot="8" material="compass"/>
+        </loadout>
+    </loadouts>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>leather chestplate</material>
+                <material>leather leggings</material>
+                <material>leather boots</material>
+                <material>bread</material>
+                <material>compass</material>
+                <material>arrow</material>
+            </any>
+        </remove-drops>
+
+        <repair-tools>
+            <any>
+                <material>wood sword</material>
+                <material>bow</material>
+            </any>
+        </repair-tools>
+    </items>
+</map>

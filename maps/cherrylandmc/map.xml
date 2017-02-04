@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<map name="CherrylandMC" version="2.1.1">
+<include src="defaults.xml"/>
+<authors>
+  <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- hugWulf -->
+  <author uuid="916c8d6f12d34a238553d3ddcfcd248c"/> <!-- spongebobtime2 -->
+</authors>
+<teams>
+  <team id="blue" color="blue" min="2" max="15" max-overfill="20">{colors.blue}</team>
+  <team id="red" color="red" min="2" max="15" max-overfill="20">{colors.red}</team>
+</teams>
+<spawns>
+    <spawn>
+        <regions>
+            <cuboid yaw="-90" min="-38, 53, -2" max="-41, 53, 2"/>
+        </regions>
+    </spawn>
+    <spawn team="red" loadout="red-loadout">
+        <regions>
+            <point yaw="0">19.5, 13, -80.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" loadout="red-loadout">
+        <regions>
+            <point yaw="180">19.5, 13, 87.5</point>
+        </regions>
+    </spawn>
+</spawns>
+<loadouts>
+    <loadout id="blue-loadout">
+        <item slot="0" material="stone sword"/>
+        <item slot="1" material="bow">
+          <enchantment level="1">arrow infinite</enchantment>
+        </item>
+        <item slot="2" material="diamond pickaxe"/>
+        <item slot="3" material="iron spade"/>
+        <item slot="4" material="log" amount="64"/>
+        <item slot="5" material="glass" amount="64"/>
+        <item slot="6" material="iron ingot" amount="1"/>
+        <item slot="7" material="golden apple" amount="2"/>
+        <item slot="8" material="golden carrot" amount="64"/>
+        <item slot="28" material="arrow" amount="1"/>
+
+        <helmet color="#FFFFFF" material="leather helmet"/>
+        <chestplate team-color="true" material="leather chestplate"/>
+        <leggings color="#FFFFFF" material="leather leggings"/>
+        <boots color="#FFFFFF" material="leather boots"/>
+    </loadout>
+    <loadout id="red-loadout">
+        <item slot="0" material="stone sword"/>
+        <item slot="1" material="bow">
+          <enchantment level="1">arrow infinite</enchantment>
+        </item>
+        <item slot="2" material="diamond pickaxe"/>
+        <item slot="3" material="iron spade"/>
+        <item slot="4" material="log" amount="64"/>
+        <item slot="5" material="glass" amount="64"/>
+        <item slot="6" material="iron ingot" amount="1"/>
+        <item slot="7" material="golden apple" amount="2"/>
+        <item slot="8" material="golden carrot" amount="64"/>
+        <item slot="28" material="arrow" amount="1"/>
+
+        <helmet color="#FFFFFF" material="leather helmet"/>
+        <chestplate team-color="true" material="leather chestplate"/>
+        <leggings color="#FFFFFF" material="leather leggings"/>
+        <boots color="#FFFFFF" material="leather boots"/>
+    </loadout>
+    <loadout id="kill-reward">
+        <item material="golden apple"/>
+    </loadout>
+ </loadouts>
+ <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+ </kills>
+ <zones>
+     <zone modify="never"> <!--  chests  -->
+         <region>
+             <cuboid min="2, 23, -13" max="1, 23, -13"/>
+             <cuboid min="37, 23, -13" max="36, 23, -13"/>
+             <cuboid min="24, 9, -13" max="24, 9, -13"/>
+             <cuboid min="14, 9, -13" max="14, 9, -13"/>
+             <cuboid min="11, 9, -6" max="11, 9, -6"/>
+             <cuboid min="9, 9, -6" max="9, 9, -6"/>
+             <cuboid min="27, 9, -6" max="27, 9, -6"/>
+             <cuboid min="29, 9, -6" max="29, 9, -6"/>
+             <cuboid min="29, 9, 12" max="29, 9, 12"/>
+             <cuboid min="27, 9, 12" max="27, 9, 12"/>
+             <cuboid min="9, 9, 12" max="9, 9, 12"/>
+             <cuboid min="11, 9, 12" max="11, 9, 12"/>
+             <cuboid min="14, 9, 19" max="14, 9, 19"/>
+             <cuboid min="27, 9, -6" max="27, 9, -6"/>
+             <cuboid min="24, 9, 19" max="24, 9, 19"/>
+             <cuboid min="37, 23, 19" max="36, 23, 19"/>
+             <cuboid min="2, 23, 19" max="1, 23, 19"/>
+         </region>
+         <message>{cherry.chests}</message>
+     </zone>
+     <zone modify="never">
+         <region>
+             <invert>
+               <cuboid min="-8, 1, -107" max="47, 60, 114"/>
+             </invert>
+         </region>
+         <message>{errors.outside-map}</message>
+     </zone>
+     <!--  SPAWNS  -->
+     <zone modify="never">
+         <enter>
+             <team>blue</team>
+         </enter>
+         <region>
+             <cuboid min="27, 1, 77" max="12, 60, 92"/>
+         </region>
+     </zone>
+     <zone modify="never">
+         <enter>
+             <team>red</team>
+         </enter>
+         <region>
+             <cuboid min="12, 1, -85" max="27, 60, -70"/>
+         </region>
+     </zone>
+ </zones>
+ <objectives>
+   <monuments destroyable="true" owner="blue" materials="obsidian">
+       <monument name="{directions.right}">
+           <region>
+              <point>41, 27, 107</point>
+           </region>
+       </monument>
+       <monument name="{directions.left}">
+           <region>
+              <point>-3, 27, 107</point>
+           </region>
+       </monument>
+   </monuments>
+   <monuments destroyable="true" owner="red" materials="obsidian">
+       <monument name="{directions.right}">
+         <region>
+            <point>-3, 27, -101</point>
+         </region>
+       </monument>
+       <monument name="{directions.left}">
+         <region>
+            <point>41, 27, -101</point>
+         </region>
+       </monument>
+   </monuments>
+ </objectives>
+ <items>
+   <remove-drops>
+     <any>
+       <material>arrow</material>
+       <material>log</material>
+       <material>glass</material>
+       <material>golden carrot</material>
+     </any>
+   </remove-drops>
+   <repair-tools>
+     <any>
+       <material>stone sword</material>
+       <material>iron spade</material>
+       <material>diamond pickaxe</material>
+       <material>bow</material>
+       <material>leather helmet</material>
+       <material>leather chestplate</material>
+       <material>leather leggings</material>
+       <material>leather boots</material>
+     </any>
+   </repair-tools>
+ </items>
+ <locales>
+  <locale lang="en">
+    <cherry>
+      <chests>You may not physically edit the TNT chests.</chests>
+    </cherry>
+  </locale>
+</locales>
+</map>
