@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Tasty Fight" version="1.1.0" spec="1.0.0">
+    <include src="defaults.xml"/>
+    <include src="Shared/reward-one-gap.xml"/>
+ 
+    <authors>
+        <author uuid="50849f8fdd104947b0cf5d91fa3634a2"/> <!-- Crimson_Aught -->
+    </authors>
+ 
+    <teams>
+        <team id="blue" color="blue" min="2" max="25">{names.blueberries}</team>
+        <team id="red" color="red" min="2" max="25">{names.raspberries}</team>
+    </teams>
+ 
+    <spawns>
+    <!-- Spectator spawn -->
+        <spawn>
+            <regions>
+                <point yaw="0">0.5, 122, -117.5</point>
+            </regions>
+        </spawn>
+        <!-- Team spawns -->
+        <spawn team="blue" loadout="default" yaw="-90">
+            <regions>
+                <point yaw="-90">-85.5, 40, 2.5</point>
+            </regions>
+        </spawn>
+        <spawn team="red" loadout="default" yaw="90">
+            <regions>
+                <point yaw="90">85.5, 40, -1.5</point>
+            </regions>
+        </spawn>
+    </spawns>
+ 
+    <objectives>
+        <monuments materials="obsidian">
+            <monuments owner="red">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>37, 30, -36</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>94, 27, 83</block>
+                    </region>
+                </monument>
+            </monuments>
+            <monuments owner="blue">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>-38, 30, 36</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>-95, 27, -83</block>
+                    </region>
+                </monument>
+            </monuments>
+        </monuments>
+    </objectives>
+ 
+    <loadouts>
+        <loadout id="default">
+            <chestplate team-color="true" material="leather chestplate"/>
+            <leggings team-color="true" material="leather leggings"/>
+            <boots team-color="true" material="leather boots"/>
+            <item slot="0" material="iron sword"/>
+            <item slot="1" material="bow">
+                <enchantment>arrow infinite</enchantment>
+            </item>
+            <item slot="2" material="diamond pickaxe">
+                <enchantment level="1">dig speed</enchantment>
+            </item>
+            <item slot="3" material="golden apple" amount="3"/>
+            <item slot="4" material="log" amount="64"/>
+            <item slot="5" material="stained glass" amount="64"/>
+            <item slot="6" material="pumpkin pie" amount="32"/>
+            <item slot="7" material="exp bottle" amount="5"/>
+            <item slot="27" material="arrow" amount="1"/>
+            <item slot="28" material="lapis block" amount="1"/>
+        </loadout>
+    </loadouts>
+ 
+    <zones>
+        <zone modify="never">
+            <region>
+                <invert><cuboid min="122, 70, 112" max="-120, 13, -108"/></invert>
+            </region>
+            <message>{errors.outside-map}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cylinder base="85, 33, -2" radius="11" height="16"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cylinder base="65, 33, 1" radius="11" height="16"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <point>-72, 40, 9</point>/>
+            </region>
+            <message>{errors.cannot-build}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <point>-72, 40, -5</point>/>
+            </region>
+            <message>{errors.cannot-build}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <point>71, 40, -9</point>/>
+            </region>
+            <message>{errors.cannot-build}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <point>71, 40, 5</point>/>
+            </region>
+            <message>{errors.cannot-build}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="1000, 60, 1000" max="-1000, 250, -1000"/>
+            </region>
+            <message>{errors.outside-map}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cylinder base="-85, 33, 2" radius="11" height="16"/>
+            </region>
+            <message>{errors.outside-map}</message>
+        </zone>
+        
+    </zones>
+ 
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather chestplate</material>
+                <material>leather leggings</material>
+                <material>leather boots</material>
+                <material>arrow</material>
+                <material>pumpkin pie</material>
+                <material>golden apple</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+            </any>
+        </repair-tools>
+    </items>
+</map>
