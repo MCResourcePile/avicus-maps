@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<map name="Mudslide" version="1.0.0" description="A big dirty mess is piled around you, capture the hill to win!">
+    <include src="defaults.xml"/>
+    <include src="Shared/reward-one-gap.xml"/>
+
+    <authors>
+        <author uuid="59d434b54cc449b4a69643476ddf09ed"/>  <!-- _Merp -->
+        <author uuid="bf3319534f9243ee8abc7544b8234936"/> <!-- Wulfcaspice -->
+    </authors>
+
+    <teams>
+        <team id="red" color="red" min="12" max="20">{colors.red}</team>
+        <team id="blue" color="blue" min="12" max="20">{colors.blue}</team>
+    </teams>
+
+    <spawns>
+        <spawn yaw="-90">
+            <regions>
+                <block>-129, 59, -61</block>
+            </regions>
+        </spawn>
+
+        <spawn team="red" yaw="180" loadout="default">
+            <regions>
+                <block>-61, 51, 9</block>
+            </regions>
+        </spawn>
+
+        <spawn team="blue" yaw="0" loadout="default">
+            <regions>
+                <block>-61, 51, -132</block>
+            </regions>
+        </spawn>
+    </spawns>
+
+    <objectives>
+        <hill name="{directions.center}" capture-time="10s" points="15" >
+            <capture>
+                <cylinder base="-61, 23, -61" height="4" radius="4"/>
+            </capture>
+            <progress>
+                <cuboid min="-59, 22, -59" max="-65, 22, -65"/>
+            </progress>
+        </hill>
+        <hill name="{directions.left}" capture-time="5s" points="1" >
+            <capture>
+                <cylinder base="-83, 21, -62" height="4" radius="3"/>
+            </capture>
+            <progress>
+                <cuboid min="-81, 21, -60" max="-85, 21, -64"/>
+            </progress>
+        </hill>
+        <hill name="{directions.right}" capture-time="5s" points="1" >
+            <capture>
+                <cylinder base="-41, 21, -62" height="4" radius="3"/>
+            </capture>
+            <progress>
+                <cuboid min="-39, 21, -60" max="-43, 21, -64"/>
+            </progress>
+        </hill>
+
+        <scores limit="200">
+            <score id="blue-score" team="blue"/>
+            <score id="red-score" team="red"/>
+        </scores>
+    </objectives>
+
+    <results>
+        <win team="blue">
+            <check>
+                <objective team="blue">blue-score</objective>
+            </check>
+        </win>
+        <win team="red">
+            <check>
+                <objective team="red">red-score</objective>
+            </check>
+        </win>
+    </results>
+
+    <loadouts>
+        <loadout id="default">
+            <effect duration="5s">damage resistance</effect>
+            <helmet material="leather helmet" team-color="true"/>
+            <chestplate material="leather chestplate" team-color="true"/>
+            <leggings material="leather leggings" team-color="true"/>
+            <boots material="leather boots" team-color="true"/>
+            <item slot="0" material="iron sword"/>
+            <item slot="1" material="bow"/>
+            <item slot="3" material="bread" amount="16"/>
+            <item slot="2" material="golden apple"/>
+            <item slot="8" material="arrow" amount="8"/>
+            <item slot="29" material="ladder" amount="16"/>
+        </loadout>
+    </loadouts>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>leather chestplate</material>
+                <material>iron leggings</material>
+                <material>leather boots</material>
+                <material>cooked beef</material>
+                <material>arrow</material>
+                <material>golden apple</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+            </any>
+        </repair-tools>
+    </items>
+
+    <zones>
+        <zone modify="never">
+            <region>
+                <invert>
+                    <cuboid min="9, 0, 10" max="-133, 62, -134"/>
+                </invert>
+            </region>
+            <message>{errors.outside-map}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="-128, 56, -68" max="-133, 62, -56"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <sphere origin="-62, 50, 5" radius="18"/>
+            </region>
+            <enter>
+                <team>red</team>
+            </enter>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <sphere origin="-62, 50, -129" radius="18"/>
+            </region>
+            <enter>
+                <team>blue</team>
+            </enter>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <sphere origin="-62, 22, -62" radius="6"/> <!-- Center Hill Region -->
+                <sphere origin="-41, 21, -62" radius="6"/> <!-- Down Hill Region -->
+                <sphere origin="-83, 21, -62" radius="6"/> <!-- Up Hill Region -->
+            </region>
+            <message>{errors.cannot-build-hill}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <sphere origin="-62, 17, -107" radius="14"/> <!-- Drop Zone 1 Region -->
+                <sphere origin="-62, 17, -15" radius="14"/> <!-- Drop Zone 2 Region -->
+            </region>
+            <message>{errors.cannot-build}</message>
+        </zone>
+    </zones>
+    <world>
+        <gamerules>
+            <doDaylightCycle>false</doDaylightCycle>
+        </gamerules>
+    </world>
+</map>
