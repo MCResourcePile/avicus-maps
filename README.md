@@ -10,7 +10,7 @@ Contributing
 -----------------
 
 ### **For map authors:**  
-If you have a map that was included in the official Overcast Network maps repository and would like to add it to our collections, please get in contact with one of our [managers](https://mcresourcepile.github.io/staff) through Discord.
+If you have a map that was included in the official Avicus Network maps repository and would like to add it to our collections, please get in contact with one of our [managers](https://mcresourcepile.github.io/staff) through Discord.
 
 ### **For contributors:**  
 Before adding a new map, ensure that you can answer **all** the following questions with "yes".
