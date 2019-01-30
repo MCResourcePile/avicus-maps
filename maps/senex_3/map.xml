@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map name="Senex III" version="1.1.0">
+<map name="Senex III" version="1.1.0" spec="1.0.0">
     <include src="defaults.xml"/>
-
     <authors>
         <author uuid="44df6b20168f4389b7ac434518207c2f"/> <!-- ParaPenguin -->
         <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- Wulfcaspice -->
     </authors>
-
     <teams>
         <team id="purple" color="purple" min="2" max="25">{colors.purple}</team>
         <team id="orange" color="orange" min="2" max="25">{colors.orange}</team>
     </teams>
-
     <spawns>
         <spawn yaw="180">
             <regions>
@@ -29,7 +26,6 @@
             </regions>
         </spawn>
     </spawns>
-
     <objectives>
         <monuments materials="obsidian">
             <monuments owner="purple">
@@ -58,7 +54,6 @@
             </monuments>
         </monuments>
     </objectives>
-
     <loadouts>
         <loadout id="default">
             <helmet team-color="true" material="leather helmet"/>
@@ -74,7 +69,6 @@
             <item slot="9" material="arrow" amount="1"/>
         </loadout>
     </loadouts>
-
     <zones>
         <zone modify="never">
             <region>
@@ -95,7 +89,6 @@
             <message>{errors.cannot-build}</message>
         </zone>
     </zones>
-
     <items>
         <remove-drops>
             <any>
