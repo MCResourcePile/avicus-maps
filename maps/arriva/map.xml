@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Arriva" version="1.0.0" spec="1.0.0" genre="arcade">
+    <include src="defaults.xml"/>
+    <authors>
+        <author uuid="8140193825d1437ebb70d2828a7a6aac"/> <!-- Shirokamii -->
+        <author uuid="06e0e1734a9346549769fa7c216e353f"/> <!-- Howsie -->
+    </authors>
+    <teams competitor="individual">
+        <team id="minotaur" color="red" min="1" max="1" max-overfill="1">Minotaur</team>
+        <team id="players" color="cyan" min="4" max="15" max-overfill="15">Players</team>
+    </teams>
+    <channels team-chat="true" global-chat="false"/>
+    <spawns>
+        <spawn team="spectators" yaw="180">
+            <regions>
+                <point>17, 103, -815</point>
+            </regions>
+        </spawn>
+        <spawn team="minotaur" yaw="90" loadout="minotaur-loadout">
+            <regions>
+                <point>-6, 103, -797</point>
+            </regions>
+        </spawn>
+        <spawn team="players" yaw="135" loadout="players-loadout">
+            <regions>
+                <point>42, 103, -779</point>
+            </regions>
+        </spawn>
+    </spawns>
+    <loadouts>
+        <loadout id="minotaur-loadout">
+            <helmet team-color="true" material="leather helmet" unbreakable="true"/>
+            <chestplate team-color="true" material="leather chestplate" unbreakable="true"/>
+            <leggings team-color="true" material="leather leggings" unbreakable="true"/>
+            <boots team-color="true" material="leather boots" unbreakable="true"/>
+            <item slot="0" material="iron axe" unbreakable="true">
+                <enchantment level="100">damage all</enchantment>
+            </item>
+        </loadout>
+        <loadout id="players-loadout">
+            <helmet team-color="true" material="leather helmet" unbreakable="true"/>
+        </loadout>
+    </loadouts>
+    <zones>
+        <zone>
+            <region>
+                <cuboid min="20, 102, -819" max="14, 105, -813"/>
+            </region>
+            <enter>
+                <team>players</team>
+            </enter>
+            <scorebox points="1"/>
+        </zone>
+        <zone modify="never" region="everywhere"/>
+    </zones>
+    <objectives>
+        <score team="players" limit="1"/>
+        <last-team-standing team="minotaur"/>
+    </objectives>
+    <elimination/>
+</map>
