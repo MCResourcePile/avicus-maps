@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map genre="sky wars" name="Operation: Winter Storm HC" spec="1.0.0" version="1.0.0">
+<map genre="sky wars" name="Operation: Winter Storm UHC" spec="1.0.0" version="1.0.0">
   <include src="defaults.xml"/>
   <include src="Shared/skywars.xml"/>
   <authors>
