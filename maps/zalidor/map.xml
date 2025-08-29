@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Zalidor" version="1.1.0" spec="1.0.0">
+    <include src="defaults.xml"/>
+    <gametype>dtm</gametype>
+    <include src="Shared/reward-one-gap.xml"/>
+    <authors>
+        <author uuid="25f23c56f9014f579a1f02ff0071f846"/> <!-- Naskel -->
+    </authors>
+    <tutorial>
+      <step freeze="false" countdown="5s" location="805, 91, -762" yaw="90" pitch="32">
+        <chat>
+          <line>^r • {tutorial.generic.team-spawns}</line>
+        </chat>
+      </step>
+      <step freeze="false" countdown="5s" location="830, 88, -708" yaw="-21" pitch="-6">
+        <chat>
+          <line>^r • {tutorial.dtm.monument-area}</line>
+          <line>^r • {tutorial.dtm.monument-objective}</line>
+        </chat>
+      </step>
+    </tutorial>
+    <teams>
+        <team id="cyan" color="cyan" min="2" max="25">{colors.cyan}</team>
+        <team id="purple" color="purple" min="2" max="25">{colors.purple}</team>
+    </teams>
+    <spawns>
+        <!-- Spectator spawn -->
+        <spawn>
+            <regions>
+                <point yaw="0">739.5, 119, -885.5</point>
+            </regions>
+        </spawn>
+        <!-- Team spawns -->
+        <spawn team="cyan" loadout="default" yaw="90">
+            <regions>
+                <point yaw="90">801.5, 89.5, -762.5</point>
+            </regions>
+        </spawn>
+        <spawn team="purple" loadout="default" yaw="-90">
+            <regions>
+                <point yaw="-90">672.5, 89.5, -761.5</point>
+            </regions>
+        </spawn>
+    </spawns>
+    <objectives>
+        <monuments materials="obsidian">
+            <monuments owner="cyan">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>831, 89, -834</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>832, 90, -704</block>
+                    </region>
+                </monument>
+            </monuments>
+            <monuments owner="purple">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>641, 90, -704</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>642, 89, -834</block>
+                    </region>
+                </monument>
+            </monuments>
+        </monuments>
+    </objectives>
+    <loadouts>
+        <loadout id="default">
+            <helmet material="leather helmet" team-color="true"/>
+            <chestplate material="leather chestplate" team-color="true"/>
+            <leggings material="leather leggings" team-color="true"/>
+            <boots material="leather boots" team-color="true"/>
+            <item slot="0" material="stone sword"/>
+            <item slot="1" material="bow"/>
+            <item slot="2" material="diamond pickaxe"/>
+            <item slot="3" material="golden apple" amount="2"/>
+            <item slot="4" material="cooked beef" amount="16"/>
+            <item slot="5" material="log" amount="64"/>
+            <item slot="6" material="glass" amount="32"/>
+            <item slot="7" material="stone spade"/>
+            <item slot="28" material="arrow" amount="36"/>
+        </loadout>
+        <loadout id="four-arrow">
+            <item material="arrow" amount="4"/>
+        </loadout>
+    </loadouts>
+    <kills>
+        <rewards>
+            <reward loadout="four-arrow"/>
+        </rewards>
+    </kills>
+    <zones>
+        <zone modify="never">
+            <region>
+                <cylinder base="801, 88, -763" radius="7" height="4"/>
+            </region>
+            <enter>
+                <team>cyan</team>
+            </enter>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cylinder base="672,88,-762" radius="7" height="4"/>
+            </region>
+            <enter>
+                <team>purple</team>
+            </enter>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+    </zones>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>leather chestplate</material>
+                <material>leather leggings</material>
+                <material>leather boots</material>
+                <material>cooked beef</material>
+                <material>arrow</material>
+                <material>golden apple</material>
+                <material>snow ball</material>
+                <material>snow block</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>stone sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+                <material>stone spade</material>
+            </any>
+        </repair-tools>
+    </items>
+</map>
